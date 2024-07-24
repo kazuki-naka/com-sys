@@ -4,25 +4,91 @@ body {
 	background-color: #CCFFFF; 
 }
 
-.mouse {
-	width: 30px;
-	height: 30px;
-	background: red;
-	border-radius: 50%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	pointer-events: none;
-}
-
-.robots {
-	display: flex;
+.flex {
 	justify-content: center;
 	position: absolute;
 	top: 50%; 
 	left: 50%;
-	transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);  
+	display: flex; 
+}
+
+.chat-robot {
+	position: relative;
+	display: inline-block;
+	margin: 1.5em 0 1.5em 15px;
+	padding: 7px 10px;
+	width: 110px;
+	height: 110px;
+	line-height: 110px;
+	text-align: center;
+	color: #555;
+	font-size: 40px;
+	background: #FFF;
+	border: solid 3px #555;
+	box-sizing: border-box;
+}
+
+.chat-robot:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -24px;
+	margin-top: -12px;
+	border: 12px solid transparent;
+	border-right: 12px solid #FFF;
+	z-index: 2;
+}
+
+.chat-robot:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: -30px;
+	margin-top: -14px;
+	border: 14px solid transparent;
+	border-right: 14px solid #555;
+	z-index: 1;
+}
+
+.chat-human {
+	position: absolute;
+	right: 20%; 
+	bottom: 20%;
+	display: inline-block;
+	margin: 1.5em 15px 1.5em 0;
+	padding: 7px 10px;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	color: #555;
+	font-size: 16px;
+	background: #FFF;
+	border: solid 3px #555;
+	box-sizing: border-box;
+}
+
+.chat-human:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -24px;
+	margin-top: -12px;
+	border: 12px solid transparent;
+	border-left: 12px solid #FFF;
+	z-index: 2;
+}
+
+.chat-human:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -30px;
+	margin-top: -14px;
+	border: 14px solid transparent;
+	border-left: 14px solid #555;
+	z-index: 1;
 }
 
 .head, 
@@ -40,24 +106,7 @@ body {
 	height: 150px; 
 	border-radius: 200px 200px 0 0; 
 	margin-bottom: 10px;
-} 
-
-
-/* .head:hover {
-	width: 300px;
-	transition: 1s ease-in-out;
-	cursor: pointer;
 }
-
-.head:hover .right_eye,
-.head:hover .left_eye {
-	box-shadow: 
-	inset 5px 0 5px #9c0058
-}
-
-.head:hover .mouth {
-	display:block;
-} */
 
 .eyes {
 	display: flex
@@ -107,31 +156,12 @@ body {
 
 .left_arm { 
 	margin-right: 10px; 
-} 
-
-.left_arm:hover {
-	-webkit-transform: translate(0, -50%) scale(1.2);
-	-moz-transform: translate(0, -50%) scale(1.2);
-	-o-transform: translate(0, -50%) scale(1.2);
-	-ms-transform: translate(0, -50%) scale(1.2);
-	transform: translate(0, -50%) scale(1.2);
-	cursor: pointer;
 }
-
 
 .right_arm { 
 	margin-left: 10px; 
 	transition: 1.0s; 
 	transform-origin: 0%, 0%;
-} 
-
-.right_arm:hover {
-	/* -webkit-transform: translate(0, -50%) scale(1.2);
-	-moz-transform: translate(0, -50%) scale(1.2);
-	-o-transform: translate(0, -50%) scale(1.2);
-	-ms-transform: translate(0, -50%) scale(1.2); */
-	transform: rotate(40deg); 
-	cursor: pointer;
 }
 
 .torso { 
@@ -140,10 +170,6 @@ body {
 	border-radius: 0 0 50px 50px; 
 	display: flex;
 	justify-content: center  
-} 
-
-.torso:hover{
-	cursor: pointer;
 }
 
 .energy_ball {
@@ -157,12 +183,6 @@ body {
     0 0 20px #fff,
     10px 0 40px red,
     -10px 0 40px red
-}
-
-.torso:hover .energy_ball {
-	-webkit-animation: glow 1s ease-in-out infinite alternate;
-	-moz-animation: glow 1s ease-in-out infinite alternate;
-	animation: glow 1s ease-in-out infinite alternate;
 }
 
 .lower_body { 
@@ -181,28 +201,10 @@ body {
 
 .left_leg { 
 	margin-left: 45px; 
-} 
-
-.left_leg:hover {
-	-webkit-transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -o-transform: rotate(20deg);
-    -ms-transform: rotate(20deg);
-    transform: rotate(20deg);
-	cursor: pointer;
 }
 
 .right_leg { 
 	margin-left: 30px; 
-}
-
-.right_leg:hover {
-	-webkit-transform: rotate(-20deg);
-    -moz-transform: rotate(-20deg);
-    -o-transform: rotate(-20deg);
-    -ms-transform: rotate(-20deg);
-    transform: rotate(-20deg);
-	cursor: pointer;
 }
 
 .message {
@@ -215,31 +217,4 @@ body {
 .message::after {
 	content: "|";
 	animation: typinganime .8s ease infinite;
-}
-
-@keyframes typinganime{
-	from{opacity:0}
-	to{opacity:1}
-}
-
-@keyframes glow {
-	0% {
-	box-shadow:
-		0 0 20px #fff,
-		10px 0 40px red,
-		-10px 0 40px red,
-	}
-	30% {
-	box-shadow:
-		0 0 40px #fff,
-		10px 0 60px red,
-		-10px 0 60px red,
-	}
-	100% {
-	box-shadow:
-		0 0 60px #fff,
-		10px 0 80px red,
-		-10px 0 80px red,
-		inset -10px 0 40px red
-	}
 }
