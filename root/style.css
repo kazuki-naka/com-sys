@@ -23,7 +23,7 @@ body {
 	line-height: 110px;
 	text-align: center;
 	color: #555;
-	font-size: 40px;
+	font-size: 25px;
 	background: #FFF;
 	border: solid 3px #555;
 	box-sizing: border-box;
@@ -63,7 +63,7 @@ body {
 	line-height: 200px;
 	text-align: center;
 	color: #555;
-	font-size: 16px;
+	font-size: 25px;
 	background: #FFF;
 	border: solid 3px #555;
 	box-sizing: border-box;
@@ -123,12 +123,14 @@ body {
 	position: relative; 
 	top: 80px; 
 	left: 20px; 
+	transition: all 1s;
 } 
 
 .right_eye { 
 	position: relative; 
 	top: 80px; 
 	left: 110px; 
+	transition: all 1s;
 }
 
 .mouth {
@@ -156,6 +158,18 @@ body {
 
 .left_arm { 
 	margin-right: 10px; 
+}
+
+.show_happy {
+	-webkit-transform: translate(0, -50%) scale(1.2);
+	-moz-transform: translate(0, -50%) scale(1.2);
+	-o-transform: translate(0, -50%) scale(1.2);
+	-ms-transform: translate(0, -50%) scale(1.2);
+	transform: translate(0, -50%) scale(1.2);
+}
+
+.show_sad {
+	transform: translate(0, 30%);
 }
 
 .right_arm { 
